@@ -5,7 +5,6 @@ const rl = readline.createInterface({
 });
 
 let input = [];
-
 rl.on("line", function (line) {
     input = line.split(' ').map(v => parseInt(v));
     console.log(main(input[0], input[1], input[2]));
@@ -22,6 +21,4 @@ function main(a, b, c) {
     } else {
         return Math.floor(a / netProfit) + 1
     }
-
-    return i;
 }

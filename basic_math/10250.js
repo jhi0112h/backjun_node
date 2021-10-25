@@ -5,29 +5,34 @@ const rl = readline.createInterface({
 });
 
 let count = 0;
-let input = [][];
+let input = [];
 rl.on("line", function (line) {
-    if (input.length < 1) {
+    if (count === 0) {
         count = parseInt(line);
     } else {
-        let i = 0;
-        while (i < input.length) {
-            input = line.split(' ').map(v => parseInt(v));
-        }
+        input.push(line.split(' ').map(v => parseInt(v)));
+    }
+
+    if (input.length === count) {
         rl.close();
     }
 }).on("close", function () {
     let i = 0;
-    while (i < input.length) {
+    while (i < count) {
         console.log(main(input[i][0], input[i][1], input[i][2]));
+        i++;
     }
 
     process.exit();
 });
 
-function main(a, b, c) {
-    let h = Math.ceil(c/a),
-        w = c%a;
+function main(th, tw, x) {
+    let h = x % th || th,
+        w = Math.ceil(x / th);
+
+    if (w < 10) {
+        w = `0${w}`;
+    }
 
     return `${h}${w}`;
 }

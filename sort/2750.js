@@ -24,6 +24,19 @@ rl.on("line", function (line) {
 });
 
 function solution(list) {
+    // // Selection Sort
+    // for (let i = 0; i < list.length; i++) {
+    //     let index = i;
+    //     for (let j = i; j < list.length; j++) {
+    //         if(list[index] > list[j]) {
+    //             index = j;
+    //         }
+    //     }
+    //     let tmp = list[i];
+    //     list[i] = list[index];
+    //     list[index] = tmp;
+    // }
+
     // // Bubble Sort
     // for(let i=0; i<list.length-1; i++) {
     //     for(let j=0; j<list.length - i - 1; j++) {
